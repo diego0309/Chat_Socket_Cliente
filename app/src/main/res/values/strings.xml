@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ChatSocket</string>
+    <string name="username">Username</string>
+    <string name="cancel">Cancelar</string>
+    <string name="signin">Entrar al chat</string>
+
+</resources>
