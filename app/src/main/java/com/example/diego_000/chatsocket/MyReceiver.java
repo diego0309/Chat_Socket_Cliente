@@ -32,8 +32,8 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-            String ipServidor = "192.168.0.3";
-            int puerto = 1234;
+            String ipServidor = intent.getExtras().getString("ip");
+            int puerto = 121;
             String nickname = intent.getExtras().getString("username");
             PrintWriter out;
             try{

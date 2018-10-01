@@ -7,17 +7,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity
 {
 
     EditText username;
+    EditText ip;
+    Button btIniciar;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ip = findViewById(R.id.etIp);
+        btIniciar = findViewById(R.id.btIniciar);
+    }
+
+
+    public void conectar(View view)
+    {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
@@ -32,6 +43,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int id) {
                 Intent intent = new Intent(MainActivity.this,MyReceiver.class);
                 intent.putExtra("username", username.getText().toString());
+                intent.putExtra("ip", ip.getText().toString());
                 sendBroadcast(intent);
             }
         });
@@ -42,9 +54,6 @@ public class MainActivity extends AppCompatActivity
         });
         builder.setCancelable(false);
         builder.show();
-
     }
-
-
 
 }
